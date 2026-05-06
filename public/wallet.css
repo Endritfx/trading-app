@@ -1,0 +1,388 @@
+/* =========================
+   wallet.css
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0b0e11;
+    color: white;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 30px;
+    background: #111418;
+    border-bottom: 1px solid #222;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.menu-btn {
+    display: none;
+    font-size: 34px;
+    cursor: pointer;
+    color: #f0b90b;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 9999;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+    color: #f0b90b;
+}
+
+.nav-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    background: #161a1e;
+    transition: .2s;
+    font-size: 14px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background: #f0b90b;
+    color: black;
+    font-weight: bold;
+}
+
+/* BUTTON */
+button {
+    border: none;
+    background: #f0b90b;
+    color: black;
+    padding: 12px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: .2s;
+}
+
+button:hover {
+    opacity: .9;
+}
+
+/* CONTAINER */
+.container {
+    max-width: 1500px;
+    margin: auto;
+    padding: 25px;
+}
+
+/* TOP STATS */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: #161a1e;
+    padding: 18px;
+    border-radius: 12px;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+.card span {
+    font-size: 12px;
+    color: #888;
+}
+
+.card h2 {
+    margin-top: 8px;
+    font-size: 24px;
+}
+
+/* MAIN GRID */
+.wallet-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+/* BOX */
+.section {
+    background: #161a1e;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.section h2 {
+    margin-bottom: 15px;
+}
+
+/* HOLDINGS */
+.trade-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.trade-card {
+    background: #0b0e11;
+    padding: 16px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.trade-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.trade-left .symbol {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.trade-left small {
+    color: #888;
+    margin-top: 4px;
+}
+
+.trade-right {
+    text-align: right;
+}
+
+.trade-profit {
+    font-size: 16px;
+    font-weight: bold;
+    color: #0ecb81;
+}
+
+/* PIE CHART */
+.chart-circle {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    margin: 15px auto;
+    background: conic-gradient(#f0b90b 0% 60%,
+            #627eea 60% 85%,
+            #14f195 85% 100%);
+}
+
+/* ACTIONS */
+.wallet-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.wallet-actions button {
+    width: 100%;
+}
+
+/* HISTORY */
+.wallet-history {
+    margin-top: 20px;
+}
+
+/* SPECIAL COLORS */
+.green {
+    color: #0ecb81;
+}
+
+.red {
+    color: #f6465d;
+}
+
+.yellow {
+    color: #f0b90b;
+}
+
+/* TABLET */
+@media(max-width:1100px) {
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .wallet-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* MOBILE */
+@media(max-width:700px) {
+
+    .container {
+        padding: 15px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .trade-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .trade-right {
+        width: 100%;
+        text-align: left;
+    }
+
+    .wallet-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .chart-circle {
+        width: 180px;
+        height: 180px;
+    }
+
+}
+
+/* FOOTER */
+.footer {
+    margin-top: 70px;
+    background: linear-gradient(180deg, #0a0f14, #080c11);
+    border-top: 1px solid #1a1f26;
+    padding: 50px 25px 20px;
+}
+
+.footer-top {
+    max-width: 1400px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 35px;
+}
+
+.footer-brand h2 {
+    color: #f0b90b;
+    font-size: 30px;
+    margin-bottom: 14px;
+}
+
+.footer-brand p {
+    color: #9aa4af;
+    line-height: 1.8;
+    max-width: 340px;
+}
+
+.footer-col h3 {
+    color: white;
+    margin-bottom: 16px;
+    font-size: 18px;
+}
+
+.footer-col a,
+.footer-col span {
+    display: block;
+    color: #9aa4af;
+    text-decoration: none;
+    margin-bottom: 12px;
+    transition: .2s;
+    font-size: 15px;
+}
+
+.footer-col a:hover {
+    color: #f0b90b;
+    transform: translateX(4px);
+}
+
+.small {
+    color: #9aa4af;
+    line-height: 1.7;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.footer-bottom {
+    max-width: 1400px;
+    margin: 35px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid #161b22;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    color: #6f7b87;
+    font-size: 14px;
+}
+
+/* MOBILE */
+@media(max-width:1000px) {
+
+    .footer-top {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media(max-width:700px) {
+
+    .footer-top {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: #111418;
+        flex-direction: column;
+        padding: 16px;
+        gap: 12px;
+        z-index: 1500;
+        border-top: 1px solid #222;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links a,
+    .nav-links button {
+        width: 100%;
+        text-align: left;
+    }
+
+}

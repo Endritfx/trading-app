@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Crypto</title>
+    <link rel="stylesheet" href="learning.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">⚡ CryptoEdu</div>
+
+        <div class="menu-btn" onclick="toggleMenu()">
+            ☰
+        </div>
+
+        <div class="nav-links" id="navLinks">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="wallet.html">Wallet</a>
+            <a href="leaderboard.html">Leaderboard</a>
+            <a href="news.html">News</a>
+            <a href="learning.html">Learn</a>
+            <button onclick="logout()">Logout</button>
+        </div>
+
+    </nav>
+
+    <div class="container">
+
+        <div class="top">
+
+            <div>
+                <h1>📚 Learn Crypto</h1>
+                <p>Master crypto from beginner to advanced level.</p>
+            </div>
+
+            <div class="progress-box">
+                <div class="progress-text">
+                    Completed: <span id="doneLessons">0</span>/20
+                </div>
+                <div class="progress-bar">
+                    <div id="progressFill"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <input type="text" id="searchLesson" placeholder="Search lessons...">
+
+        <div class="lesson-grid" id="lessonGrid"></div>
+
+    </div>
+    <script type="module" src="app.js"></script>
+    <script type="module" src="learning.js"></script>
+
+    <footer class="footer">
+
+        <div class="footer-top">
+
+            <div class="footer-brand">
+                <h2>⚡ CryptoEdu</h2>
+                <p>
+                    Learn crypto trading, track portfolio,
+                    explore markets and compete globally.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Pages</h3>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="wallet.html">Wallet</a>
+                <a href="leaderboard.html">Leaderboard</a>
+                <a href="news.html">News</a>
+                <a href="learning.html">Learn</a>
+            </div>
+
+            <div class="footer-col">
+                <h3>Technology</h3>
+                <span>TradingView Charts</span>
+                <span>Binance Live Data</span>
+                <span>Firebase Auth</span>
+                <span>Firestore Database</span>
+                <span>Cointelegraph</span>
+            </div>
+
+            <div class="footer-col">
+                <h3>Notice</h3>
+                <p class="small">
+                    Educational project only. No financial advice.
+                </p>
+                <p class="small">
+                    Prices may be delayed depending on source.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <span>© 2026 CryptoEdu</span>
+            <span>Powered by TradingView • Binance • Cointelegraph</span>
+        </div>
+
+    </footer>
+</body>
+
+</html>

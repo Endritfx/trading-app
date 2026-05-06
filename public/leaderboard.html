@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="leaderboard.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">⚡ CryptoEdu</div>
+
+        <div class="menu-btn" onclick="toggleMenu()">
+            ☰
+        </div>
+
+        <div class="nav-links" id="navLinks">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="wallet.html">Wallet</a>
+            <a href="leaderboard.html">Leaderboard</a>
+            <a href="news.html">News</a>
+            <a href="learning.html">Learn</a>
+            <button onclick="logout()">Logout</button>
+        </div>
+
+    </nav>
+
+    <div class="container">
+
+        <div class="top-box">
+            <h1>🏆 Top Traders</h1>
+
+            <select id="sortType" onchange="loadLeaderboard()">
+                <option value="profit">Profit</option>
+                <option value="balance">Balance</option>
+                <option value="winrate">Win Rate</option>
+            </select>
+        </div>
+
+        <div id="myRank" class="my-rank">Your Rank: --</div>
+
+
+
+        <div id="leaderboardList"></div>
+
+    </div>
+    <script type="module" src="app.js"></script>
+    <script type="module" src="leaderboard.js"></script>
+</body>
+
+</html>

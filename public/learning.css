@@ -1,0 +1,378 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #050b12;
+    color: white;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    background: #111418;
+    position: relative;
+    height: 80px;
+    border-bottom: 1px solid #222;
+}
+
+.menu-btn {
+    display: none;
+    font-size: 34px;
+    cursor: pointer;
+    color: #f0b90b;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 9999;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #f0b90b;
+    white-space: nowrap;
+}
+
+
+.nav-links {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    background: #161a1e;
+    transition: .2s;
+    font-size: 14px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background: #f0b90b;
+    color: black;
+    font-weight: bold;
+}
+
+.active {
+    background: #f0b90b;
+    color: black !important;
+}
+
+button {
+    border: none;
+    background: #f0b90b;
+    color: black;
+    padding: 12px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: .2s;
+}
+
+button:hover {
+    opacity: .9;
+}
+
+/* CONTAINER */
+.container {
+    max-width: 1400px;
+    margin: auto;
+    padding: 35px 25px;
+}
+
+/* TOP */
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.top h1 {
+    font-size: 46px;
+    margin-bottom: 10px;
+}
+
+.top p {
+    color: #9aa4af;
+    font-size: 18px;
+}
+
+/* PROGRESS */
+.progress-box {
+    min-width: 320px;
+    background: #111922;
+    padding: 18px;
+    border-radius: 14px;
+}
+
+.progress-text {
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.progress-bar {
+    height: 12px;
+    background: #1f2b38;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+#progressFill {
+    height: 100%;
+    width: 0%;
+    background: #f0b90b;
+    transition: .4s;
+}
+
+/* SEARCH */
+#searchLesson {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    background: #111922;
+    color: white;
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+/* GRID */
+.lesson-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    align-items: start;
+}
+
+/* CARD */
+.lesson-card {
+    background: #111922;
+    border: 1px solid #1b2530;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: .25s;
+}
+
+.lesson-card:hover {
+    transform: translateY(-4px);
+    border-color: #f0b90b;
+}
+
+.lesson-head {
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.lesson-title {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.lesson-level {
+    font-size: 13px;
+    padding: 6px 10px;
+    border-radius: 30px;
+    background: #1c2631;
+    color: #f0b90b;
+}
+
+.lesson-body {
+    display: none;
+    padding: 0 20px 20px;
+    color: #c7d0da;
+    line-height: 1.7;
+}
+
+.lesson-body.open {
+    display: block;
+}
+
+.complete-btn {
+    margin-top: 18px;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    background: #f0b90b;
+    color: black;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.complete-btn.done {
+    background: limegreen;
+    color: white;
+}
+
+/* MOBILE */
+@media(max-width:950px) {
+    .lesson-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width:700px) {
+
+    .top h1 {
+        font-size: 34px;
+    }
+
+    .progress-box {
+        width: 100%;
+        min-width: 100%;
+    }
+
+    .container {
+        padding: 20px 15px;
+    }
+
+}
+
+.lesson-card.active {
+    border-color: #f0b90b;
+    box-shadow: 0 0 20px rgba(240, 185, 11, 0.15);
+}
+
+.lesson-body {
+    transition: all 0.3s ease;
+}
+
+.footer {
+    margin-top: 70px;
+    background: linear-gradient(180deg, #0a0f14, #080c11);
+    border-top: 1px solid #1a1f26;
+    padding: 50px 25px 20px;
+}
+
+.footer-top {
+    max-width: 1400px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 35px;
+}
+
+.footer-brand h2 {
+    color: #f0b90b;
+    font-size: 30px;
+    margin-bottom: 14px;
+}
+
+.footer-brand p {
+    color: #9aa4af;
+    line-height: 1.8;
+    max-width: 340px;
+}
+
+.footer-col h3 {
+    color: white;
+    margin-bottom: 16px;
+    font-size: 18px;
+}
+
+.footer-col a,
+.footer-col span {
+    display: block;
+    color: #9aa4af;
+    text-decoration: none;
+    margin-bottom: 12px;
+    transition: .2s;
+    font-size: 15px;
+}
+
+.footer-col a:hover {
+    color: #f0b90b;
+    transform: translateX(4px);
+}
+
+.small {
+    color: #9aa4af;
+    line-height: 1.7;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.footer-bottom {
+    max-width: 1400px;
+    margin: 35px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid #161b22;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    color: #6f7b87;
+    font-size: 14px;
+}
+
+/* MOBILE */
+@media(max-width:1000px) {
+
+    .footer-top {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media(max-width:700px) {
+
+    .footer-top {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: #111418;
+        flex-direction: column;
+        padding: 16px;
+        gap: 12px;
+        z-index: 1500;
+        border-top: 1px solid #222;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links a,
+    .nav-links button {
+        width: 100%;
+        text-align: left;
+    }
+
+}

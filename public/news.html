@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>CryptoEdu News</title>
+    <link rel="stylesheet" href="news.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">⚡ CryptoEdu</div>
+
+        <div class="menu-btn" onclick="toggleMenu()">
+            ☰
+        </div>
+
+        <div class="nav-links" id="navLinks">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="wallet.html">Wallet</a>
+            <a href="leaderboard.html">Leaderboard</a>
+            <a href="news.html">News</a>
+            <a href="learning.html">Learn</a>
+            <button onclick="logout()">Logout</button>
+        </div>
+
+    </nav>
+
+    <div class="container">
+
+        <div class="top-news">
+
+            <h1>📰 Crypto Market News</h1>
+
+            <div class="filters">
+                <input type="text" id="searchNews" placeholder="Search news...">
+
+                <select id="category">
+                    <option value="">All</option>
+                    <option value="bitcoin">Bitcoin</option>
+                    <option value="ethereum">Ethereum</option>
+                    <option value="market">Market</option>
+                    <option value="regulation">Regulation</option>
+                </select>
+
+                <button onclick="loadNews()">Refresh</button>
+            </div>
+
+        </div>
+
+        <div class="breaking" id="breakingNews">
+            🔥 Loading breaking news...
+        </div>
+
+        <div id="newsGrid" class="news-grid"></div>
+
+    </div>
+    <script type="module" src="app.js"></script>
+    <script src="news.js"></script>
+
+    <footer class="footer">
+
+        <div class="footer-top">
+
+            <div class="footer-brand">
+                <h2>⚡ CryptoEdu</h2>
+                <p>
+                    Learn crypto trading, track portfolio,
+                    explore markets and compete globally.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Pages</h3>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="wallet.html">Wallet</a>
+                <a href="leaderboard.html">Leaderboard</a>
+                <a href="news.html">News</a>
+                <a href="learning.html">Learn</a>
+            </div>
+
+            <div class="footer-col">
+                <h3>Technology</h3>
+                <span>TradingView Charts</span>
+                <span>Binance Live Data</span>
+                <span>Firebase Auth</span>
+                <span>Firestore Database</span>
+                <span>Cointelegraph</span>
+            </div>
+
+            <div class="footer-col">
+                <h3>Notice</h3>
+                <p class="small">
+                    Educational project only. No financial advice.
+                </p>
+                <p class="small">
+                    Prices may be delayed depending on source.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <span>© 2026 CryptoEdu</span>
+            <span>Powered by TradingView • Binance • Cointelegraph</span>
+        </div>
+
+    </footer>
+</body>
+
+</html>

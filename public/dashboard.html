@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoEdu Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo">⚡ CryptoEdu</div>
+
+        <div class="menu-btn" onclick="toggleMenu()">
+            ☰
+        </div>
+
+        <div class="nav-links" id="navLinks">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="wallet.html">Wallet</a>
+            <a href="leaderboard.html">Leaderboard</a>
+            <a href="news.html">News</a>
+            <a href="learning.html">Learn</a>
+            <button onclick="logout()">Logout</button>
+        </div>
+
+    </nav>
+
+    <!-- MAIN -->
+    <div class="container">
+
+        <!-- STATS -->
+        <div class="stats-grid">
+
+            <div class="card">
+                <span>Balance</span>
+                <h2 id="balance">0$</h2>
+            </div>
+
+            <div class="card">
+                <span>Total Profit</span>
+                <h2 id="totalProfit">0$</h2>
+            </div>
+
+            <div class="card">
+                <span>Win Rate</span>
+                <h2 id="winRate">0%</h2>
+            </div>
+
+            <div class="card">
+                <span>Trades</span>
+                <h2 id="totalTrades">0</h2>
+            </div>
+
+            <div class="card">
+                <span>Best</span>
+                <h2 id="bestTrade">0$</h2>
+            </div>
+
+            <div class="card">
+                <span>Worst</span>
+                <h2 id="worstTrade">0$</h2>
+            </div>
+
+        </div>
+
+        <!-- MAIN GRID -->
+        <div class="main-grid">
+
+            <!-- LEFT -->
+            <div class="chart-box">
+
+                <div class="chart-top">
+
+                    <select id="pairSelect" onchange="changePair()">
+                        <option value="btcusdt">BTCUSDT</option>
+                        <option value="ethusdt">ETHUSDT</option>
+                        <option value="solusdt">SOLUSDT</option>
+                    </select>
+
+                    <h3>Price: <span id="livePrice">0</span></h3>
+
+                </div>
+
+                <div id="tvchart"></div>
+
+            </div>
+
+            <!-- RIGHT -->
+            <div class="trade-box">
+
+                <h2>Open Trade</h2>
+
+                <select id="side">
+                    <option value="buy">BUY</option>
+                    <option value="sell">SELL</option>
+                </select>
+
+                <input id="amount" placeholder="Amount ($)">
+
+                <select id="leverage">
+                    <option value="1">1x</option>
+                    <option value="5">5x</option>
+                    <option value="10">10x</option>
+                    <option value="20">20x</option>
+                    <option value="50">50x</option>
+                </select>
+
+                <input type="number" id="tp" placeholder="Take Profit">
+                <input type="number" id="sl" placeholder="Stop Loss">
+
+                <button onclick="openTrade()">Open Position</button>
+
+                <div class="livepnl">
+                    Live PNL:
+                    <span id="livePnl">0$</span>
+                </div>
+
+                <hr style="margin:20px 0; border:1px solid #222">
+
+                <h3>💰 Buy Crypto</h3>
+
+                <input id="buyAmount" placeholder="USD amount">
+
+                <div class="sell-buttons">
+                    <button onclick="fillBuyPercent(25)">25%</button>
+                    <button onclick="fillBuyPercent(50)">50%</button>
+                    <button onclick="fillBuyPercent(100)">100%</button>
+                </div>
+
+                <input type="range" id="buySlider" min="0" max="100" value="0" oninput="updateBuySlider(this.value)">
+
+                <div id="buySliderValue">0%</div>
+
+                <button
+                    onclick="buyCrypto(window.currentPair.toUpperCase(),parseFloat(document.getElementById('buyAmount').value))">Buy</button>
+
+                <h3 style="margin-top:15px;">💸 Sell Crypto</h3>
+
+                <input id="sellAmount" placeholder="USD amount">
+
+                <div class="sell-buttons">
+                    <button onclick="fillSellPercent(25)">25%</button>
+                    <button onclick="fillSellPercent(50)">50%</button>
+                    <button onclick="fillSellPercent(100)">100%</button>
+                </div>
+
+                <input type="range" id="sellSlider" min="0" max="100" value="0" oninput="updateSellSlider(this.value)">
+
+                <div id="sliderValue">0%</div>
+
+                <button
+                    onclick="sellCrypto(window.currentPair.toUpperCase(), parseFloat(document.getElementById('sellAmount').value))">
+                    Sell
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- OPEN POSITIONS -->
+        <div class="section">
+            <h2>🟢 Open Positions</h2>
+            <div id="openTrades" class="trade-grid"></div>
+        </div>
+
+        <!-- HISTORY -->
+        <div class="section">
+            <div class="history-top">
+
+                <h2>📜 Trade History</h2>
+
+                <div class="history-controls">
+
+                    <input type="text" id="filter" placeholder="Search pair..." oninput="loadTrades()">
+                    <select id="sortTrades" onchange="loadTrades()">
+                        <option value="new">Newest</option>
+                        <option value="old">Oldest</option>
+                        <option value="profitHigh">Best Profit</option>
+                        <option value="profitLow">Worst Profit</option>
+                    </select>
+
+                </div>
+
+            </div>
+            <div id="tradeList" class="trade-grid"></div>
+            <div style="text-align:center; margin-top:10px;">
+                <button onclick="toggleTrades()" id="toggleTradesBtn">
+                    ⋯ Show More
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://s3.tradingview.com/tv.js"></script>
+    <script type="module" src="portfolio.js"></script>
+    <script type="module" src="app.js"></script>
+    <script type="module" src="live.js"></script>
+    <footer class="footer">
+
+        <div class="footer-top">
+
+            <div class="footer-brand">
+                <h2>⚡ CryptoEdu</h2>
+                <p>
+                    Learn crypto trading, track portfolio,
+                    explore markets and compete globally.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Pages</h3>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="wallet.html">Wallet</a>
+                <a href="leaderboard.html">Leaderboard</a>
+                <a href="news.html">News</a>
+                <a href="learning.html">Learn</a>
+            </div>
+
+            <div class="footer-col">
+                <h3>Technology</h3>
+                <span>TradingView Charts</span>
+                <span>Binance Live Data</span>
+                <span>Firebase Auth</span>
+                <span>Firestore Database</span>
+                <span>Cointelegraph</span>
+            </div>
+
+            <div class="footer-col">
+                <h3>Notice</h3>
+                <p class="small">
+                    Educational project only. No financial advice.
+                </p>
+                <p class="small">
+                    Prices may be delayed depending on source.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <span>© 2026 CryptoEdu</span>
+            <span>Powered by TradingView • Binance • Cointelegraph </span>
+        </div>
+
+    </footer>
+
+    <div id="toast"></div>
+</body>
+
+</html>
