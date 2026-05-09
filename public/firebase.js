@@ -3,13 +3,12 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 const firebaseConfig = {
-    apiKey: process.env.EXPO_PUBLIC_FIREBASE_API_KEY,
-    authDomain: process.env.EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN,
-    projectId: process.env.EXPO_PUBLIC_FIREBASE_PROJECT_ID,
-    storageBucket: process.env.EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET,
-    messagingSenderId:
-        process.env.EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-    appId: process.env.EXPO_PUBLIC_FIREBASE_APP_ID,
+    apiKey: "AIzaSyDGbRBSWoi7AfQIAb_LJOzykXLhr2rzzUk",
+    authDomain: "trading-app-69a65.firebaseapp.com",
+    projectId: "trading-app-69a65",
+    storageBucket: "trading-app-69a65.firebasestorage.app",
+    messagingSenderId: "469501224440",
+    appId: "1:469501224440:web:18ac4518ebdf266bc8220d"
 };
 
 const app = initializeApp(firebaseConfig);
